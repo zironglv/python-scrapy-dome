@@ -44,6 +44,7 @@ DOWNLOAD_DELAY = 0.5
 #   'Accept-Language': 'en',
 #}
 
+
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
@@ -52,9 +53,9 @@ DOWNLOAD_DELAY = 0.5
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'doubanspider.middlewares.DoubanspiderDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'doubanspider.middlewares.DoubanspiderDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -66,6 +67,7 @@ DOWNLOAD_DELAY = 0.5
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'doubanspider.pipelines.DoubanspiderPipeline': 300,
+    'doubanspider.pipelines.ImageDown': 5,  # 后面的数字代表执行优先级 ，当执行pipeine的时候会按照数字由小到大执行
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -100,3 +102,5 @@ mysqlconfig = {
     'database': 'python_demo',
     'charset' : 'utf8'
 }
+
+IMAGES_STORE = '/Users/caizi/desktop/doubanimage' #图片存储目录

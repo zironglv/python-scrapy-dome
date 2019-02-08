@@ -9,10 +9,12 @@ import scrapy
 class DoubanspiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    # 排序、民称、介绍、评星、评价
+    # 排序、名称、介绍、评星、评价
     movie_num = scrapy.Field()
     movie_name = scrapy.Field()
     movie_introduce = scrapy.Field()
     movie_star = scrapy.Field()
     movie_eval = scrapy.Field()
+    movie_image = scrapy.Field()
+    movie_image_url = scrapy.Field()
 

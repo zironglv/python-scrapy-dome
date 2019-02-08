@@ -78,6 +78,14 @@ class DoubanspiderDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
+        '''设置headers和切换请求头
+             :param request: 请求体
+             :param spider: spider对象
+             :return: None
+             '''
+        referer = request.meta.get('referer', None)
+        if referer:
+            request.headers['referer'] = referer
         return None
 
     def process_response(self, request, response, spider):
@@ -101,3 +109,5 @@ class DoubanspiderDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
